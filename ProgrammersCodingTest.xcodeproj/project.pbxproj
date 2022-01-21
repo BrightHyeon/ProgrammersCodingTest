@@ -6,6 +6,10 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXFileReference section */
+		969C3E3A279AA499000C7519 /* 키패드누르기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "키패드누르기.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		969C3E32279AA37C000C7519 = {
 			isa = PBXGroup;
@@ -17,6 +21,7 @@
 		969C3E39279AA39F000C7519 /* Level1 */ = {
 			isa = PBXGroup;
 			children = (
+				969C3E3A279AA499000C7519 /* 키패드누르기.swift */,
 			);
 			path = Level1;
 			sourceTree = "<group>";
