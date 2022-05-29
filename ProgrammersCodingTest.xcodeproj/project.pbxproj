@@ -26,6 +26,7 @@
 		969516162837446E0037C7BE /* 피보나치 수.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "피보나치 수.swift"; sourceTree = "<group>"; };
 		969C3E3A279AA499000C7519 /* 키패드누르기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "키패드누르기.swift"; sourceTree = "<group>"; };
 		969D0D9428435DA600CE98E1 /* [1차] 프렌즈 4블록.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[1차] 프렌즈 4블록.swift"; sourceTree = "<group>"; };
+		969D0D962843629E00CE98E1 /* 9012 괄호.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "9012 괄호.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -51,6 +52,7 @@
 		969C3E32279AA37C000C7519 = {
 			isa = PBXGroup;
 			children = (
+				969D0D952843625E00CE98E1 /* BaekJoon */,
 				96776D6627A4FDCD00D74584 /* Level2 */,
 				969C3E39279AA39F000C7519 /* Level1 */,
 			);
@@ -68,6 +70,14 @@
 				968C05B627A05F1D00BDA15B /* 체육복.swift */,
 			);
 			path = Level1;
+			sourceTree = "<group>";
+		};
+		969D0D952843625E00CE98E1 /* BaekJoon */ = {
+			isa = PBXGroup;
+			children = (
+				969D0D962843629E00CE98E1 /* 9012 괄호.swift */,
+			);
+			path = BaekJoon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
