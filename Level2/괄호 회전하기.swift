@@ -61,7 +61,8 @@ func isRight(_ str: String) -> Bool {
             return false
         }
     }
-    if bl == br || ml == mr || sl == sr {
+    // ||이 아닌 &&.
+    if bl == br && ml == mr && sl == sr {
         return true
     }
     return false
