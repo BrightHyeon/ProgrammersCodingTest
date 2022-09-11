@@ -30,40 +30,22 @@ func solution(_ s: String) -> Int {
 }
 
 func isRight(_ str: String) -> Bool {
-    
-    var bl = 0
-    var ml = 0
-    var sl = 0
-    
-    var br = 0
-    var mr = 0
-    var sr = 0
-    
+    var stack: String = ""
+    let cases: [Character: Character] = ["[":"]","{":"}","(":")"]
     for i in str {
-        switch i {
-        case "[":
-            bl += 1
-        case "{":
-            ml += 1
-        case "(":
-            sl += 1
-        case "]":
-            br += 1
-        case "}":
-            mr += 1
-        case ")":
-            sr += 1
-        default:
-            break
-        }
-        
-        if bl < br || ml < mr || sl < sr {
+        if stack.isEmpty && cases.values.contains(i) {
             return false
+        } else {
+            if cases.keys.contains(i) {
+                stack.append(i)
+            } else {
+                if cases[stack.last!] == i {
+                    let _ = stack.popLast()
+                } else {
+                    return false
+                }
+            }
         }
     }
-    // ||이 아닌 &&.
-    if bl == br && ml == mr && sl == sr {
-        return true
-    }
-    return false
+    return stack.count == 0 ? true : false
 }
