@@ -34,6 +34,7 @@
 		96AD5F2428CDD8A20040EDD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		96B5E2882849C46A00723969 /* 이진 변환 반복하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "이진 변환 반복하기.swift"; sourceTree = "<group>"; };
 		96B9943C284485B600571EB1 /* [1차] 뉴스 클러스터링.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[1차] 뉴스 클러스터링.swift"; sourceTree = "<group>"; };
+		96D1161428CF57F300B5DFD7 /* 다리를 지나는 트럭.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다리를 지나는 트럭.swift"; sourceTree = "<group>"; };
 		96F882942849CDA500BE2F72 /* 기능개발.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "기능개발.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				96776D6727A4FDDF00D74584 /* 가장 큰 수.swift */,
+				96D1161428CF57F300B5DFD7 /* 다리를 지나는 트럭.swift */,
 				96AD5F2328CDD78E0040EDD4 /* 괄호 회전하기.swift */,
 				9637D2912830CAAC00C63408 /* n제곱 배열 자르기.swift */,
 				96941BA928349D46002A1752 /* N개의 최소공배수.swift */,
