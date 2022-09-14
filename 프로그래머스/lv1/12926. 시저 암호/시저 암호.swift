@@ -1,29 +1,14 @@
 func solution(_ s:String, _ n:Int) -> String {
-    var result: String = ""
-    
-    func convert(c: String) -> String {
-        if c == " " {
-            return " "
-        } else {
-            let ascii = Int(UnicodeScalar(c)!.value)
-            if c == c.uppercased() {
-                if ascii+n > 90 {
-                    return String(UnicodeScalar(ascii+n-26)!)
-                } else {
-                    return String(UnicodeScalar(ascii+n)!)
-                }
-            } else {
-                if ascii+n > 122 {
-                    return String(UnicodeScalar(ascii+n-26)!)
-                } else {
-                    return String(UnicodeScalar(ascii+n)!)
-                }
-            }
+    return s.map {
+        var ascii = Int(UnicodeScalar(String($0))!.value)
+        switch ascii {
+            case 65...90:
+            ascii = (ascii + n - 65) % 26 + 65
+            case 97...122:
+            ascii = (ascii + n - 97) % 26 + 97
+            default:
+                break
         }
-    }
-    
-    for i in s {
-        result.append(convert(c: String(i)))
-    }
-    return result
+        return String(UnicodeScalar(ascii)!)
+    }.joined()
 }
