@@ -6,7 +6,7 @@ func solution(_ board:[[Int]]) -> Int {
   var rect = board
   
   for i in 1..<row {
-    for j in 1..<column {
+    for j in 1..<column  {
       if rect[i][j] != 0 {
         rect[i][j] = min(rect[i-1][j], rect[i][j-1], rect[i-1][j-1]) + 1
       }
