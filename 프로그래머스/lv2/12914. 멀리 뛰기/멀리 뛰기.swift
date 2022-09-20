@@ -1,17 +1,19 @@
-func solution(_ n:Int) -> Int {
-    if n == 1 {
-        return 1
-    } else if n == 2 {
-        return 2
-    } else {
-        return increase(n: n)
-    }
-}
+import Foundation
 
-func increase(n: Int) -> Int {
-    var base: [Int] = [1,2]
-    for _ in 3...n {
-        base.append(base[base.count-2]%1234567+base.last!%1234567)
+func solution(_ n: Int) -> Int {
+    var result: Int = 0
+    
+    guard n != 1 else { return 1 }
+    guard n != 2 else { return 2 }
+    
+    func addPre(prePre: Int, pre: Int, count: Int) {
+        let now = prePre + pre
+        result = now%1234567
+        if count != n {
+            addPre(prePre: pre%1234567, pre: now%1234567, count: count + 1)
+        }
     }
-    return base.last!%1234567
+    addPre(prePre: 1, pre: 2, count: 3)
+    
+    return result
 }
