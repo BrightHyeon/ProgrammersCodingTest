@@ -4,7 +4,7 @@ func solution(_ k:Int, _ score:[Int]) -> [Int] {
     var awards = [Int]() {
         didSet {
             if awards.count > k {
-                awards = awards.sorted(by: { $0 > $1 })
+                awards.sort(by: { $0 > $1 })
                 awards.removeLast()
             }
         }
