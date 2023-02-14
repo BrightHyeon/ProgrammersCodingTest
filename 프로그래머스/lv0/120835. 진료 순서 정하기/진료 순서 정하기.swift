@@ -1,6 +1,4 @@
 func solution(_ emergency:[Int]) -> [Int] {
-    let sorted = emergency.sorted()
-    return emergency.map {
-        emergency.count - sorted.firstIndex(of: $0)!
-    }
+    let sorted = emergency.sorted(by: >)
+    return emergency.map { sorted.firstIndex(of: $0)! + 1 }
 }
