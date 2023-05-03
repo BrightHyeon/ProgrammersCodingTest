@@ -1,41 +1,50 @@
-let input = readLine()!.split(separator: " ").map { Int($0)! }
-let N = input[0], M = input[1]
+import Foundation
 
-var edges: [[Int]] = []
+let INF = Int(1e9)
+let input = readLine()!.split(separator: " ").map { Int(String($0))! }
+let n = input[0], m = input[1]
 
-for _ in 1...N-1 {
-    let uvw = readLine()!.split(separator: " ").map { Int($0)! }
-    edges.append(uvw)
+var edges = [[(Int, Int)]](repeating: [(Int, Int)](), count: n + 1)
+
+for _ in 0 ..< n - 1 {
+  let edge = readLine()!.split(separator: " ").map { Int(String($0))! }
+  edges[edge[0]].append((edge[1], edge[2]))
+  edges[edge[1]].append((edge[0], edge[2]))
 }
 
-var graph = Array(repeating: Array(repeating: Int.max, count: N), count: N)
-
-for edge in edges {
-    let u = edge[0]-1, v = edge[1]-1, w = edge[2]
-    graph[u][v] = w
-    graph[v][u] = w
-}
-
-func floyd(_ graph: [[Int]]) -> [[Int]] {
-    var d = graph
-    let n = graph.count
+func getDist(_ from: Int, _ to: Int) -> Int {
+  var res = 0
+  var visited = [Bool](repeating: false, count: n + 1)
+  var q = [(Int, Int)](), front = 0
+  visited[from] = true
+  q.append((from, 0))
+  
+  while front < q.count {
+    let (now, dist) = q[front]
+    front += 1
     
-    for k in 0..<n {
-        for i in 0..<n {
-            for j in 0..<n {
-                if d[i][k] != Int.max && d[k][j] != Int.max {
-                    d[i][j] = min(d[i][j], d[i][k] + d[k][j])
-                }
-            }
-        }
+    if now == to {
+      res = dist
+      break
     }
-    return d
+    
+    for (next, cost) in edges[now] {
+      if !visited[next] {
+        visited[next] = true
+        q.append((next, dist + cost))
+      }
+    }
+  }
+  
+  return res
 }
 
-graph = floyd(graph)
 
-for _ in 1...M {
-    let uv = readLine()!.split(separator: " ").map { Int($0)!-1 }
-    let u = uv[0], v = uv[1]
-    print(graph[u][v])
+var ans = ""
+for _ in 0 ..< m {
+  let q = readLine()!.split(separator: " ").map { Int(String($0))! }
+  
+  ans += "\(getDist(q[0], q[1]))\n"
 }
+
+print(ans)
