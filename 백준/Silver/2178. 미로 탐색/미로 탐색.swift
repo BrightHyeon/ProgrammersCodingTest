@@ -9,7 +9,7 @@ while !nvq.isEmpty {
     let node = nvq.removeFirst()
     let nv = [[node[0]+1, node[1]], [node[0]-1, node[1]], [node[0], node[1]+1], [node[0], node[1]-1]]
     
-    for i in nv where !(i[0] < 0 || i[1] < 0 || i[0] >= n || i[1] >= m) {
+    for i in nv where i[0] >= 0 && i[1] >= 0 && i[0] < n && i[1] < m {
         let target = arr[i[0]][i[1]]
         if target.1 == 0 && target.0 == 1 {
             nvq.append(i)
