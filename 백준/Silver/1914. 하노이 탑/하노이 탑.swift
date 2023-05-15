@@ -1,24 +1,16 @@
 import Foundation
 
-var num = Int(readLine()!)!
-print(pow(2, num) - 1)
+let N = Int(readLine()!)!
+print(pow(2, N) - 1)
 
-if num <= 20 {
-    hanoi(n: num, from: 1, by: 2, to: 3)
-}
-
-func move(from:Int, to:Int) {
-    if num <= 20 {
-        print("\(from) \(to)")
-    }
-}
-
-func hanoi(n:Int, from:Int, by:Int, to:Int) {
+func hanoi(_ n: Int, _ from: Int, _ by: Int, _ to: Int) {
     if n == 1 {
-        move(from: from, to: to)
+        print("\(from) \(to)")
     } else {
-        hanoi(n: n-1, from: from, by: to, to: by)
-        move(from: from, to: to)
-        hanoi(n: n-1, from: by, by: from, to: to)
+        hanoi(n-1, from, to, by)
+        print("\(from) \(to)")
+        hanoi(n-1, by, from, to)
     }
 }
+
+N <= 20 ? hanoi(N, 1, 2, 3) : ()
