@@ -1,19 +1,17 @@
 let n = Int(readLine()!)!, m = Int(readLine()!)!
-var distances = [Int]()
-var vip = 0
-
-func getCount(_ distance: Int) -> Int {
-    if distance == 0 { return 1 }
-    if distance < 4 { return distance }
-    return getCount(distance-1) + getCount(distance-2)
+var sections = [Int]()
+var arr = Array(repeating: 0, count: n+1)
+arr[0] = 1; arr[1] = 1
+for i in 1..<n {
+    arr[i+1] = arr[i-1] + arr[i]
 }
 
-
+var vip = 0
 for _ in 0..<m {
     let num = Int(readLine()!)!
-    distances.append(num - vip - 1)
+    sections.append(num - vip - 1)
     vip = num
 }
 
-distances.append(n - vip)
-print(distances.reduce(1) { $0 * getCount($1) })
+sections.append(n - vip)
+print(sections.reduce(1) { $0 * arr[$1] })
