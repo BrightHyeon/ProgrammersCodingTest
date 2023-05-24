@@ -1,27 +1,26 @@
-import Foundation
-
 func solution(_ cacheSize: Int, _ cities: [String]) -> Int {
-    
-    var cache: [String] = []
-    var time = 0
-    
-    guard cacheSize != 0 else { return 5 * cities.count }
+    var res = 0
+    var cache = Array(repeating: "", count: cacheSize)
     
     for i in cities {
-        let low = i.lowercased()
-        if cache.contains(low) {
-            time += 1
-            cache.remove(at: cache.firstIndex(of: low)!)
-            cache.append(low)
-        } else {
-            time += 5
-            if cache.count == cacheSize {
-                cache.removeFirst()
-                cache.append(low)
-            } else {
-                cache.append(low)
+        var needRemove = -1
+        for idx in cache.count-cacheSize..<cache.count {
+            if cache[idx] == i.lowercased() {
+                needRemove = idx
+                break
             }
         }
+        
+        if needRemove == -1 {
+            res += 5
+        } else {
+            res += 1
+            cache.remove(at: needRemove)
+            needRemove = -1
+        }
+        
+        cache.append(i.lowercased())
     }
-    return time
+    
+    return res
 }
