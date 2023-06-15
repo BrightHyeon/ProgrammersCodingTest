@@ -1,18 +1,9 @@
-let n = Int(readLine()!)!
-var dp = Array(repeating: 0, count: n+1)
-
-func changeIfNeeded(_ idx: Int, _ num: Int) {
-    guard idx <= n else { return }
-    if dp[idx] == 0 || num < dp[idx] {
-        dp[idx] = num
+func wow(_ n: Int) -> Int {
+    if n < 2 {
+        return 0
+    } else {
+        return min(wow(n/2)+n%2, wow(n/3)+n%3)+1
     }
 }
 
-for i in 1..<n {
-    let num = dp[i]+1
-    changeIfNeeded(i * 3, num)
-    changeIfNeeded(i * 2, num)
-    changeIfNeeded(i + 1, num)
-}
-
-print(dp.last!)
+print(wow(Int(readLine()!)!))
