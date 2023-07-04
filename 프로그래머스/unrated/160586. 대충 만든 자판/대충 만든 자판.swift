@@ -10,8 +10,9 @@ func solution(_ keymap: [String], _ targets: [String]) -> [Int] {
     }
     
     return targets.map {
-        $0.reduce(0) {
+        let sum = $0.reduce(0) {
             $0 + (dict.keys.contains($1) ? dict[$1]! : 10001)
         }
-    }.map { $0 > 10000 ? -1 : $0 }
+        return sum > 10000 ? -1 : sum
+    }
 }
