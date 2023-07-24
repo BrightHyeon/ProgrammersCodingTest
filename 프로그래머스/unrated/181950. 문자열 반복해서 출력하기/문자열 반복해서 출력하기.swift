@@ -1,7 +1,3 @@
-import Foundation
-
-let input = readLine()!.components(separatedBy: " ")
-let (str, n) = (input[0], Int(input[1])!)
-for _ in 1...n {
-    print(str, terminator: "")
-}
+let input = readLine()!.split(separator: " ")
+let (str, n) = (String(input[0]), Int(input[1])!)
+print(String(repeating: str, count: n))
