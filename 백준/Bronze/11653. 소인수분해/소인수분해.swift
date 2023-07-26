@@ -1,16 +1,15 @@
-import Foundation
+var n = Int(readLine()!)!
+var i = 2
 
-var num = Int(readLine()!)!
-let n = Int(sqrt(Double(num)))
-
-for i in stride(from: 2, to: num, by: 1) {
-    while num % i == 0 {
-        num /= i
+while n >= i * i {
+    if n % i == 0 {
         print(i)
+        n /= i
+    } else {
+        i += 1
     }
 }
 
-
-if num != 1 {
-    print(num)
+if n > 1 {
+    print(n)
 }
