@@ -28,7 +28,6 @@ func solution(_ board: [String]) -> Int {
     }
     
     
-    
     if xS.count > oS.count || oS.count > xS.count+1 {
         return 0
     }
